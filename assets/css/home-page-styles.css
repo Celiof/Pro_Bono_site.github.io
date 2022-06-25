@@ -1,0 +1,188 @@
+@import url('/assets/css/reset.css');
+@import url('/assets/css/global.css');
+
+
+
+body::before { /*imagem do fundo da tela, fica em baixo dos menos graças ao position:relative em s-menu, se não fosse esse comando não daria para clicar no menu */
+  content: "";
+  background-image: url('/assets/images/Background-removebg.png');
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  opacity: 0.8;
+  transition: background-image 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.menu {
+  padding: 1rem 0; /* rem é uma propriedade relativa, ajuda a dimencionar melhor a pagina, ele pega o tamno da fonte e multiplica nesse caso o 16px no reset.css*/ 
+  width: 100%;
+  text-align: center;
+  position:relative; /*  é para deixar o menu por cima do background assim podemos clicar  */
+
+}
+
+.menu__item {
+  display:inline-block;/* inline-block deixa os itens um do lado do outro, e podemos acrescentar margens entre outros itens que o inline não disponibilizaria  */
+  text-transform:uppercase; /* Letra maiscula */
+  margin: 0 1.25rem;
+}
+
+.menu__icon {
+  width: 2.5rem;
+  margin: 0 1.25rem;
+  vertical-align:middle;
+}
+
+.container { /*invoca todo conteudo para a página  */
+  position: relative; /* relatorive para não ter o mesmo problema de clicar, por o body::before ser absoluto */
+  display: flex; /*para alinhar melhor os elementos   */
+  align-items: center; 
+  justify-content: space-evenly; /* no space-evenly os itens são distribuídos para que o espaçamento entre dois itens (e o espaço nas bordas) seja igual */
+  perspective: 3000px; /* colocamos aqui porque é o elemento pai (está em cima) do s-cards-carousel */
+}
+
+.card {
+  border: 0.5rem solid white;
+  width: 100%; 
+  height: 60vh; /* vh é uma unidade de medida realtiva, está relacionada ao viewport é a área onde seu website aparece, h de altura e v ou w de largura  */
+  position: absolute; /* mudamos a posição de realtive para absolute para ficar um em cima do outro e não mais ao lado  */
+  transition: filter .5s ease-in-out;
+ 
+}
+
+.card:nth-child(1){  /* nth-child pseudo classe pega o primeiro elemento que tenha s-card  */
+  transform: rotateY(0deg) translateZ(50vw); /* 0deg pra deixar fixo no centro e 50vw para 50% da area util do navegador e da um espaço entre as imagens */
+}
+
+.card:nth-child(2){  /* nth-child pseudo classe pega a segunda imagem*/
+  transform: rotateY(120deg) translateZ(50vw); /* 120deg para dar a impressão de rotação*/
+}
+
+.card:nth-child(3){  /* nth-child pseudo classe pega a terceira imagem */
+  transform: rotateY(240deg) translateZ(50vw);
+}
+
+.card__background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  opacity: 1; /* animação de colocar o mause em cima e sumir depois a imagem */
+  transition: opacity 1s ease-in-out;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* contain - para se encaixar dentro do container que está sendo colocado */
+  position: relative;
+  transition: 1s ease-in-out;
+}
+/*
+.card__title {
+  color: white;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  transition: bottom 1s ease-in-out; /* complemento do comando .s-card--hovered .s-card__title, assim ele sobe devagar o texto
+} */
+
+.controller {
+  position: absolute; /* mudamos de relative para absolute assim podemos mudar outras propriedades de posicionamento como o bottom*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  bottom: 1.5rem; /*colocando somente bottom fica em baixo do lado esquerdo, largura não está bem definida, acrescentamso o width*/
+  width: 100%; /* acrescentamos o width os botões voltam para o meio da tela  */
+}
+
+.controller__button { /*  */
+  display: flex;
+  align-items: center; /* para o botão ficar centralizado verticalmente   */
+  justify-content: center; /* para o botão ficar centralizado horizontalmente  */
+  width: 2.5rem; /* width 2.5 e height 2.5 para ficar um circulo */  
+  height: 2.5rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: var(--primary-color); /*cor da variavel em global.css*/
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer; /* mostra a mão quando em cima do botão */
+  z-index: 1; /* para não cobrir os circulos quando estilizar a linha  */
+  transition: transform 0.3s ease-in-out; /* quando for executar o transform o efeito de salto do .s-controller__button:hover demore 0.3segundos  dando um efeito melhor no inicio da transição */
+}
+
+.controller__button:hover { /* Quando passar o mouser em cima ele escala ou seja salta  */
+  transform: scale(1.1);
+}
+
+.controller__button:nth-child(2) {  /* Distancia dos circulos */
+  margin: 0 3.75rem;
+}
+
+.controller__button--active {
+  background-color: rgb(174, 22, 22); /* cor do fundo do botão */
+  color: var(--primary-color); /* variavel (primary-color) o texto e as bosdas ficam da cor selecionada em global.css  */
+  border: 0.1875rem solid var(--primary-color); /* converter pixel em rem fica 0.1875, texto vermelho tambem  */
+  outline: 0.125rem solid white;   /* cria uma segunda borda externamnte na nossa main, tambem converter de pixel (2) para rem (0.125)  */
+}
+
+.controller__line {
+  background-color: white;
+  width: 50%;
+  height: 2px;
+  position: absolute;
+}
+
+/* Hover Animation */
+
+.card--hovered .card__background {
+  cursor: pointer;
+  opacity: 0; /*com 0 ele some o background */
+}
+
+.card--hovered .card__image {
+  transform: scale(1.4); /*esse 1.4 é para a imagem ir para frente  */
+  filter: drop-shadow(30px 10px 4px rgba(0, 0, 0, .5)); /* projeta sombra da animação */ 
+}
+
+body#tattoo-01-hovered::before {
+  background-image: url('/assets/images/tattoo-01-águia.png');
+}
+
+body#tattoo-02-hovered::before {
+  background-image: url('/assets/images/tatoo-caveira-02.jpeg');
+}
+
+body#tattoo-03-hovered::before {
+  background-image: url('/assets/images/Background-04.png');
+}
+
+body[id^="tattoo-"]::before {
+  opacity: 1;
+}
+
+body[id^="tattoo-"] .card:not(.card--hovered) {
+  filter: grayscale(100%);
+}
+
+.card--hovered .card__title {
+  bottom: 50%;  /* com 50% ele fica mais ou menos no meio da imagem */
+}
+
+.cards-carousel {  /* para centralizar a imagem */
+  display: flex; 
+  justify-content: center;
+  width:  calc(100vw / 3 - 10%); /* para ajustar as imagens e sumnir a barra de rolage da pagina web */
+  transform-style: preserve-3d; /* se não colocar esse preserve 3D as imagens giram juntas com a bandeja não da o efeito de rotação */
+  transition: transform 0.4s ease-in; /* essa parte faz a rotação com efeito de girar, sem ela so troca a imagem  */
+}
+

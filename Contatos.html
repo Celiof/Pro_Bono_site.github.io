@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <link rel="stylesheet" href="/assets/css/home-page-styles.css">
+    <script src="/assets/scripts/card-hover-animation.js"></script>
+    <title>Contatos</title>
+</head>
+<body>
+    <nav class="menu"> <!--o "s" antes de menu é para indicar qual o projeto nesse caso "s" de spiderman é opcional para criação de class para o css  -->
+      
+        <ul>
+          <li>
+             <img src="../../assets/images/Jimmy_logo1.png" alt="">
+          </a>
+        </li>
+            <li class="menu__item"><!--o bloco "menu" depois de underline o elemento "item"-->
+              <a href="Pagina1.html">Página inicial</a>
+            </li> 
+            <li class="menu__item">
+              <a href="/pages/jimmyTattoo/Trabalho_Realizado.html">Trabalhos realizados</a>
+            </li>
+            <li class="menu__item menu__icon"> <!--tem que colocar s-menu__item s-menu__icon para a imagem ficar entre eles  -->
+              <img src="/assets/images/icons/menu_centro1.png" alt="caveira">  
+            </li>
+            <li class="menu__item">
+              <a href="./Artes_disponiveis.html">Artes Dísponiveis</a>
+            </li>
+            <li class="menu__item">
+              <a href="#">Contatos</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container"> <!--elemento de background, imagens da tela-->
+      <div class="cards-carousel" style="transform: translateZ(-40vw) rotateY(0deg);"> <!--essa classe vai fazer a impressão da nossa bandeja de card girar e não so a imagem -->
+
+        <a href="https://wa.me/5511940848319" class="card" id="tattoo-01">
+          <img class="card__background" src="/assets/images/Background-02.png">  <!--imagem do fundo do cartão-->
+          <img class="card__image" src="/assets/images/1.png" alt="images"><!--fica isolada para dar o efeito 3D depois, nas tres imagens -->
+
+          <h2 class="card__title"></h2>
+        </a>  
+        <a href="/assets/images/Jimmy_orçamento1-removebg-preview.png" class="card" id="tattoo-02">
+          <img class="card__background" src="/assets/images/Background-card.png">
+          <img class="card__image" src="/assets/images/Jimmy_orçamento1-removebg-preview.png" alt="images">
+          <h2 class="card__title"></h2>
+        </a> 
+        <a href="https://www.instagram.com/jimmy.freitas29/?igshid=YmMyMTA2M2Y=" class="card" id="tattoo-03">
+          <img class="card__background" src="/assets/images/Background-03.png">
+          <img class="card__image" src="/assets/images/Instagram-removebg-preview.png" alt="">
+          <h2 class="card__title"></h2> 
+        </a>
+      </div>
+    </div>
+<!-- estrutura abaixo os controladores dos botões da página-->
+    <div class="controller">
+      <div id="1" onclick="selectCarouselItem(this)" class="controller__button controller__button--active">
+        01
+      </div>
+      <div id="2" onclick="selectCarouselItem(this)" class="controller__button ">
+        02
+      </div>
+      <div id="3" onclick="selectCarouselItem(this)" class="controller__button">
+        03
+      </div>
+     <div class="controller__line"></div>
+    </div>
+</body>
+</html>
+

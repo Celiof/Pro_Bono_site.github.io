@@ -1,0 +1,99 @@
+/*
+.gallery {  
+  padding: 50px;
+  padding-left: 100px;
+  margin-top: 150px;
+}
+
+.gallery ul {
+  display: flex;
+  flex-direction: row; /*  row para ficar tudo na mesma linha 
+}
+
+.gallery ul li {
+  margin-left: 25px; /* margem entre as imagens 
+}
+
+.gallery ul li:first-child {  /* first-child pseudo classe para atingir so o elemento especifico, nesse caso o primeiro first se fosse o last seria o ultimo 
+  margin: left 0%;
+}
+
+.gallery ul li a img {
+  border: solid 6px white;
+  border-radius: 15px;
+} */
+
+.inicio {
+width: 60%;
+margin: 2rem auto;
+
+}
+
+.gallery1 {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* 8 colunas cada uma com 1 fração-1fr */
+  grid-template-rows: repeat(7, 4vw); /* 8 linhas com 5% da largura do viewport 5vw */
+  gap: 0.5rem; /*espaço da grade*/
+  margin-top: 200px;
+
+}
+
+.imgGaleria {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* abranger todo o espaço*/
+  display: block; /* tudo ficar em sequencia */
+}
+
+.GaleriaItem {
+overflow: hidden; /* para que as imagens não ultrapassem o limite */
+
+}
+
+.item01 {
+  grid-column: 1 / span 2; /* partira da primeira 1 coluna e tera largura de 2 colunas*/
+  grid-row: 1 / span 3; /* partira da primeira 1 linha e tera altura de 3 linhas */
+}
+
+.item02 {
+  grid-column: 3 / span 2;  /* partira da primeira 3 coluna e tera largura de 2 colunas*/
+  grid-row: 1 / span 3; /* partira da primeira 1 linha e tera altura de 3 linhas */
+}
+
+.item03 {
+  grid-column: 5 / span 2; /* partira da primeira 5 coluna e tera largura de 2 colunas*/
+  grid-row: 1 / span 3; /* partira da primeira 1 linha e tera altura de 3 linhas */
+}
+
+.item04 {
+  grid-column: 7 / span 2; /* partira da primeira 7 coluna e tera largura de 2 colunas*/
+  grid-row: 1 / span 3; /* partira da primeira 1 linha e tera altura de 3 linhas */
+}
+
+.item05 {
+  grid-column: 1 / span 2; /* partira da primeira 1 coluna e tera largura de 2 colunas*/
+  grid-row: 4 / span 3; /* partira da primeira 4 linha e tera altura de 3 linhas */
+}
+
+.item06 {
+  grid-column: 3/ span 2; 
+  grid-row: 4 / span 3; /* partira da primeira 4 linha e tera altura de 3 linhas */
+}
+
+.item07 {
+  grid-column: 5/ span 2; 
+  grid-row: 4 / span 3; /* partira da primeira 1 linha e tera altura de 3 linhas */
+}
+
+.item08 {
+  grid-column: 7/ span 2; 
+  grid-row: 4 / span 3; /* partira da primeira 1 linha e tera altura de 3 linhas */
+}
+
+img {
+  transition: 0.5s; /*tempo do efeito de levantar a imagem */
+}
+
+img:hover {
+  transform: scale(1.2);  /* escala1.2 ( aumenta 20%) */
+}

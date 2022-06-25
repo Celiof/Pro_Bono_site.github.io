@@ -1,0 +1,122 @@
+@import url('reset.css');
+@import url('global.css');
+@import url('components/navigator.css'); 
+/*@import url('components/pills.css'); */
+/*@import url('components/link-button.css');*/
+@import url('components/gallery.css');
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  flex-flow: row nowrap; 
+  background-color: aqua; 
+}
+
+.wrapper .main-content{ /* estrutura do fundo da tela */
+  height: 100%;
+  width: 100%;
+  background-color: gray; /*  se esse estiver ativo deixa a tela de fundo cinza e não aparece o video que inserimos */
+  padding-left: 0px;
+  position: absolute;
+
+  /* podemos contatenar as classes para facilitar a susbstituição do background image, podemos criar outra classe (s-spiderman-01-01 está abaixo).  */
+  background-image: url('../images/Background-removebg1.png');  /* papel de parede da tela  */  
+  background-size: cover;
+  background-attachment: scroll;  
+  
+}
+
+.wrapper .main-content_top{
+  height: 10vh;
+  display: flex;   /* ajuda no posicionamento dos itens na tela  */
+  flex-direction: column;
+  justify-content: flex-start;
+  
+} 
+
+.wrapper .main-content_bottom{
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  justify-content:center;
+}
+
+.wrapper .main-content .logo img{
+  margin-top: 20px;
+  margin-left: 0;
+  margin-bottom: 20px;
+  
+}
+ 
+
+.wrapper .main-content_top .description {
+  
+  margin-top: 3%;  
+  position: absolute;
+  display:inline-block;
+  margin: 0 1.25rem; 
+}
+
+.wrapper .main-content_top .description .description_text p{
+  color: rgb(41, 38, 38);
+  line-height: 150%;
+  text-align: left;
+  
+}
+
+.wrapper .main-content_top .description .pills {
+  margin-bottom: 20px; /*margem do pills para o texto abaixo  */
+  
+}
+
+.wrapper .main-content_top .links {
+  padding: 0px;
+  padding-left: 27%;
+ 
+  
+}
+
+.wrapper .main-content_top .links ul{
+  display: flex;
+  flex-direction: column;
+  margin-top: 3%;  
+  display:inline-block;
+
+}
+
+
+.menu {
+  padding: .1rem 0; 
+  width: 100%;
+  text-align: center;
+  position: fixed;
+   
+}
+
+.menu__item {
+  display:inline-block;/* inline-block deixa os itens um do lado do outro, e podemos acrescentar margens entre outros itens que o inline não disponibilizaria  */
+  text-transform:uppercase; /* Letra maiscula */
+  margin: 0 1.25rem;
+
+}
+
+.menu__icon {
+  width: 2.5rem;
+  margin: 0 1.25rem;
+  vertical-align:middle;
+ 
+}
+
+.wrapper .main-content2{ /* estrutura do fundo da tela */
+  background-image: url('../images/Background-removebg.png');
+  background-position: center top;
+  background-attachment: fixed; 
+  background-repeat: no-repeat;
+  color: darkslategrey;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+
